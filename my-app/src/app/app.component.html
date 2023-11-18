@@ -1,0 +1,11 @@
+<app-text></app-text>
+<app-menu *ngIf="isAliveCheckSample">
+  <button (click)="disposeMenuSample">Destruir</button>
+</app-menu>
+
+<app-card *ngIf="true; else outroBloco"></app-card>
+
+<ng-template #outroBloco>
+  <p>Eu so um bloco secreto na pagina !</p>
+</ng-template>
+

@@ -1,0 +1,96 @@
+<!--
+
+  Trabalhando com a diretiva de *ngIf
+
+  Vamos ter algumas opções como 'True' or 'False', true mostra nosso elementos e false desativa no elemento em pagina.
+
+  Isso podendo ser aplicado a um elemento de forma individual quanto ao um escopo global.
+
+  Lembrando que com o *ngIf='DataBiding' conseguimos com  passar parametros dentro do ngIf='Para constrolar alguns eventos.'
+
+
+ -->
+
+<p [ngClass]="style">card works!</p>
+<button (click)="change()">CHANGE</button>
+
+<!--
+
+  Trabalhando com o *ngTemplate
+
+  É utilizado para criarmos um bloco que é exibido quando uma certa condição é atendida.
+
+ -->
+
+ <!-- <ng-template #outroBloco>
+    <p>Eu so um bloco seret na pagina !</p>
+ </ng-template> -->
+
+ <!--
+
+  Trabalhando com o ngFor
+
+  Este atributo ngFor ele nos ajuda a fazer um laço de interação dentro dos nosso componente, como exemplo temos uma objeto com alguns items, que recebe a seguinte objeto.
+
+  <ol>
+    <ul *ngFor="let p for produtos" {{ p }} </ul>
+  </ol>
+
+  Lembrando que o {{ p }} sera a tag que refletira o nosso for com os elementos.
+
+
+  -->
+
+  <ul>
+    <li *ngFor="let p of produtos; let i = index"(click)="removerPorClick(i)"
+    >
+
+      {{i}} - {{ p }}
+
+    </li>
+    <button (click)="adicionar()">Adicionar</button>
+    <button (click)="remover()">Remover</button>
+  </ul>
+
+  <div [ngSwitch]="menuType">
+    <div *ngSwitchDefault>
+      <ul>
+        <li>Valide o seu acesso para processguir com sua navegação.</li>
+      </ul>
+    </div>
+    <div *ngSwitchCase="'user'">
+      <ul>
+        <li>Editar perfil</li>
+        <li>Adicionar Cartão</li>
+      </ul>
+    </div>
+    <div *ngSwitchCase="'admin'">
+      <ul>
+        <li>Editar perfil</li>
+        <li>Adicionar Cartão</li>
+        <li>Gerenciar usuarios</li>
+      </ul>
+    </div>
+    <div *ngSwitchCase="'superAdmin'">
+      <ul>
+        <li>Editar perfil</li>
+        <li>Adicionar Cartão</li>
+        <li>Gerenciar usuarios</li>
+        <li>Gerenciar Admins</li>
+      </ul>
+    </div>
+  </div>
+
+<!--
+
+  NgModule é um modulo que nos ajuda especificamente em construções de formularios
+
+ -->
+
+ <!-- <h1>Lista de compra</h1>
+ <p>adicione um tem:</p>
+ <input type="text" [(ngModel)="item"]>
+ <p>{{ item }}</p>
+ <hr> -->
+
+
